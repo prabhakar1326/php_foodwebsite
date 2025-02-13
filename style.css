@@ -1,0 +1,421 @@
+/* General Reset and Setup */
+* {
+  font-family: "Baloo Bhaina 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth; /* Applied here for global smooth scrolling */
+}
+
+body {
+  line-height: 1.6; /* Improve readability */
+  color: #333; /* Default text color */
+}
+
+/* CSS Variables for Theming */
+:root {
+  --primary-color: #007bff; /* Example primary color */
+  --secondary-color: #6c757d; /* Example secondary color */
+  --light-bg: #f8f9fa; /* Light background color */
+  --dark-bg: #343a40; /* Dark background color */
+  --text-color: #495057; /* Standard text color */
+  --link-color: #007bff; /* Link color */
+  --hover-color: #0056b3; /* Hover color */
+  --navbar-height: 80px; /* Define navbar height */
+}
+
+/* Navbar Styles */
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  position: sticky; /* Make navbar stick to the top */
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.logo img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.logo img:hover {
+  transform: rotate(10deg); /* Example hover effect */
+}
+
+#nav ul {
+  display: flex;
+  gap: 2rem; /* Modern gap property for spacing */
+}
+
+#nav ul li {
+  list-style: none;
+}
+
+#nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+#nav ul li a:hover,
+#nav ul li a:focus {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Home Section */
+#home {
+  background: url(images/bg.jpg) no-repeat center center/cover;
+  height: calc(
+    100vh - var(--navbar-height)
+  ); /* Full viewport height minus navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+#home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Dark overlay for better readability */
+  z-index: -1;
+}
+
+#home h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Text shadow for emphasis */
+}
+
+#home p {
+  font-size: 1.5rem;
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+
+/* Services Section */
+.services {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Responsive grid */
+  gap: 2rem;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.box {
+  background-color: var(--light-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card-like appearance */
+  transition: transform 0.3s ease-in-out; /* Hover effect */
+}
+
+.box:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.services .box img {
+  height: 100px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.services .box img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Clients Section */
+#client-section {
+  background: var(--light-bg);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+#client-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(images/bg.jpg) no-repeat center center/cover;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.clients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allow clients to wrap on smaller screens */
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.client-item img {
+  height: 80px; /* Adjusted size */
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.client-item img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Contact Section */
+#contact-section {
+  position: relative;
+  padding: 4rem 0;
+  background: var(--light-bg);
+}
+
+#contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(images/contact.jpg) no-repeat center center/cover;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.contact-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.contact-box form {
+  width: 90%;
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white; /* Form background for better contrast */
+}
+
+.contact-box .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-box label {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+  border-color: var(--primary-color);
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Subtle focus shadow */
+}
+
+.contact-box textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Utility Classes */
+.primary-heading {
+  font-size: 3rem;
+  padding: 1rem;
+  text-align: center;
+  color: var(--dark-bg);
+}
+
+.secondary-heading {
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--hover-color);
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+.center {
+  text-align: center;
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--dark-bg);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffcc00;
+}
+
+.footer-nav {
+  margin: 1rem 0;
+}
+
+.footer-nav a {
+  color: #ffcc00;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  color: white;
+}
+
+.footer-info,
+.footer-social {
+  width: 100%;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.footer-info p,
+.footer-social p,
+.footer-links p {
+  margin: 0.5rem 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  /* Navbar adjustments for smaller screens */
+  #nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #nav ul {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /* Home section adjustments */
+  #home {
+    padding: 1rem;
+  }
+
+  #home h1 {
+    font-size: 2.5rem;
+  }
+
+  #home p {
+    font-size: 1.2rem;
+  }
+
+  /* Services adjustments */
+  .services {
+    grid-template-columns: 1fr; /* Stack services on smaller screens */
+  }
+
+  /* Clients adjustments */
+  .clients {
+    flex-direction: column;
+  }
+
+  .client-item {
+    padding: 1rem;
+  }
+
+  /* Footer adjustments */
+  .footer-container {
+    text-align: center;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+  }
+
+  .footer-nav a {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  #home h1 {
+    font-size: 2rem;
+  }
+
+  #home p {
+    font-size: 1rem;
+  }
+}
